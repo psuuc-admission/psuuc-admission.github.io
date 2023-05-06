@@ -10,7 +10,18 @@
 </head>
 <body>
     <div class="embed-container">
-        <iframe src="https://script.google.com/macros/s/AKfycbxMJ59ow6HW6Km1aXdRpD7Le3eRf3VIW_nig-xOb1AV7lDr_5h1yRC8SP3ZOVZISKAjnQ/exec"></iframe>
+        <iframe src="https://script.google.com/macros/s/AKfycbxMJ59ow6HW6Km1aXdRpD7Le3eRf3VIW_nig-xOb1AV7lDr_5h1yRC8SP3ZOVZISKAjnQ/exec" id="embedded-frame"></iframe>
     </div>
+    <script>
+        $(document).ready(function() {
+        var embeddedFrame = $('#embedded-frame');
+        
+        // Resize embedded frame on load and on content change
+        embeddedFrame.on('load resize', function() {
+            var contentHeight = $(this).contents().height();
+            $(this).height(contentHeight);
+        });
+        });
+    </script>
 </body>
 </html>
