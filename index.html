@@ -1,40 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PSU Urdaneta Admission 2023</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/en/7/75/Pangasinan_State_University_logo.png" type="image/x-icon">
+	<title>Embedded Google Apps Script</title>
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			overflow: hidden;
+		}
+
+		.embed-container {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+	</style>
 </head>
 <body>
-    <div class="embed-container">
-        <iframe src="https://script.google.com/macros/s/AKfycbxMJ59ow6HW6Km1aXdRpD7Le3eRf3VIW_nig-xOb1AV7lDr_5h1yRC8SP3ZOVZISKAjnQ/exec" id="embedded-frame"></iframe>
-    </div>
-    <script>
-        $(document).ready(function() {
-        var embeddedFrame = $('#embedded-frame');
-        
-        // Resize embedded frame on load and on content change
-        embeddedFrame.on('load resize', function() {
-            var contentHeight = $(this).contents().height();
-            
-            // Adjust height based on screen size
-            if ($(window).width() >= 992) {
-            $(this).height(600); // desktop
-            } else if ($(window).width() >= 768) {
-            $(this).height(400); // tablet
-            } else {
-            $(this).height(300); // mobile
-            }
-            
-            // Update height to fit content
-            if (contentHeight > $(this).height()) {
-            $(this).height(contentHeight);
-            }
-        });
-        });
-    </script>
+	<div class="embed-container">
+		<iframe src="https://script.google.com/macros/s/AKfycbxMJ59ow6HW6Km1aXdRpD7Le3eRf3VIW_nig-xOb1AV7lDr_5h1yRC8SP3ZOVZISKAjnQ/exec"></iframe>
+	</div>
+	<script>
+		// Resize the iframe to fit the screen width and height
+		function resizeIframe() {
+			var iframe = document.querySelector('iframe');
+			iframe.style.height = window.innerHeight + 'px';
+			iframe.style.width = window.innerWidth + 'px';
+		}
+
+		window.addEventListener('resize', resizeIframe);
+		window.onload = resizeIframe();
+	</script>
 </body>
 </html>
