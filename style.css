@@ -4,19 +4,31 @@
     border: 0px;
 }
 
-.embed-container {
-    height: 100vh;
-  }
-  
-iframe {
-    height: 100%;
-    width: 100%;
-}
-
 /* Default styles for embedded frame */
 .embed-container iframe {
     height: 100%;
     width: 100%;
+  }
+  
+  /* Styles for screens wider than 992px (desktop) */
+  @media (min-width: 992px) {
+    .embed-container {
+      height: 600px; /* adjust height as needed */
+    }
+  }
+  
+  /* Styles for screens between 768px and 992px (tablet) */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .embed-container {
+      height: 400px; /* adjust height as needed */
+    }
+  }
+  
+  /* Styles for screens narrower than 768px (mobile) */
+  @media (max-width: 767px) {
+    .embed-container {
+      height: 300px; /* adjust height as needed */
+    }
   }
   
   

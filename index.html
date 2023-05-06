@@ -19,7 +19,20 @@
         // Resize embedded frame on load and on content change
         embeddedFrame.on('load resize', function() {
             var contentHeight = $(this).contents().height();
+            
+            // Adjust height based on screen size
+            if ($(window).width() >= 992) {
+            $(this).height(600); // desktop
+            } else if ($(window).width() >= 768) {
+            $(this).height(400); // tablet
+            } else {
+            $(this).height(300); // mobile
+            }
+            
+            // Update height to fit content
+            if (contentHeight > $(this).height()) {
             $(this).height(contentHeight);
+            }
         });
         });
     </script>
